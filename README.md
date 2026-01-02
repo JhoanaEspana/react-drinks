@@ -11,6 +11,7 @@ Desarrollado con **React + TypeScript**, enfocado en buenas prácticas, manejo e
 -   ⚛️ **React** – Librería principal para la construcción de la interfaz
 -   🟦 **TypeScript** – Tipado estático para mayor seguridad y escalabilidad
 -   🐻 **Zustand** – Manejo de estado global simple y liviano
+-   🛡️ **Zod** – Validación y tipado de esquemas para datos y formularios, garantizando consistencia y seguridad
 -   🎨 **Tailwind CSS** – Estilos modernos y diseño responsive
 -   🌐 **API de Bebidas** – Consumo de API externa para obtener la información de las bebidas
 
