@@ -1,19 +1,28 @@
 import { Wine } from 'lucide-react'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { SearchForm } from './SearchForm'
+import { useAppStore } from '../stores/useAppStore'
 
 export const Header = () => {
     const { pathname } = useLocation()
 
     const isHome = useMemo(() => pathname === '/', [pathname])
 
+    const fetchCategories = useAppStore((state) => state.fetchCategories)
+    const categories = useAppStore((state) => state.categories)
+    const searchRecipes = useAppStore((state) => state.searchRecipes)
+
+    useEffect(() => {
+        fetchCategories()
+    }, [fetchCategories])
+
     return (
         <header
             className={`relative ${
                 isHome
-                    ? 'sticky top-0 z-50 border-b border-white/5 bg-cover bg-center bg-no-repeat min-h-[600px] pb-12'
-                    : 'header-nav sticky top-0 z-50 border-b border-white/5'
+                    ? ' top-0 z-50 border-b border-white/5 bg-cover bg-center bg-no-repeat min-h-[600px] pb-12'
+                    : 'header-nav top-0 z-50 border-b border-white/5'
             }`}
             style={
                 isHome
@@ -64,7 +73,10 @@ export const Header = () => {
             </div>
             {isHome && (
                 <div className='relative container mx-auto px-6 flex justify-center items-center pt-8'>
-                    <SearchForm />
+                    <SearchForm
+                        categories={categories}
+                        searchRecipes={searchRecipes}
+                    />
                 </div>
             )}
         </header>

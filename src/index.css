@@ -63,6 +63,7 @@
 @theme dark {
     --color-background: hsl(220 25% 8%);
     --color-foreground: hsl(210 20% 95%);
+    --color-background-soft: #dadce0;
 
     --color-card: hsl(220 20% 12%);
     --color-card-foreground: hsl(210 20% 95%);
@@ -148,7 +149,7 @@
 } */
 
 body {
-    /* background-color: var(--color-background); */
+    background-color: var(--color-background-soft);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: 'rlig' 1, 'calt' 1;
